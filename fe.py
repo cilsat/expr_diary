@@ -51,8 +51,10 @@ def mfccSave(inpath='/home/cilsat/data/perisalah/studio/wav-studio-read/1.3', ou
         for n in range(ncpu):
             mfccf.create_group('chunk'+str(n))
             logef.create_group('chunk'+str(n))
-            specf.create_group('chunk'+str(n))
-            mspecf.create_group('chunk'+str(n))
+            if spec:
+                specf.create_group('chunk'+str(n))
+            if mspec:
+                mspecf.create_group('chunk'+str(n))
     except:
         pass
     mfccf.close()
